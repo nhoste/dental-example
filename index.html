@@ -1679,6 +1679,36 @@
     <script src="assets/js/wow.js"></script>
     <!-- Main Custom js file -->
     <script src="assets/js/function.js"></script>
+<script>
+// Disable right-click context menu
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+}, false);
+
+// Disable key combinations (Ctrl + C, Ctrl + V, Ctrl + U, F12, etc.)
+document.addEventListener('keydown', function (e) {
+  // Disable F12, Ctrl+Shift+I (DevTools), Ctrl+U, Ctrl+C, Ctrl+V
+  if ((e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'u')) || 
+      (e.key === 'F12') || 
+      (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+    e.preventDefault();
+  }
+}, false);
+
+// Disable text selection (prevent copy)
+document.addEventListener('selectstart', function (e) {
+  e.preventDefault();
+}, false);
+
+// Disable drag-and-drop to prevent copying images or text
+document.addEventListener('dragstart', function (e) {
+  e.preventDefault();
+}, false);
+
+// Disable the ability to highlight text
+document.body.style.userSelect = 'none';
+</script>
+
 </body>
 
 </html>
